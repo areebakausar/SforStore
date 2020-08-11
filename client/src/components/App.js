@@ -1,3 +1,8 @@
+/**
+ *  Creation of our React APP and front end
+ * Step 13:
+ */
+
 import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";

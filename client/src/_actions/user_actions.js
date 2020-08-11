@@ -1,3 +1,5 @@
+// axios is an alt. to fetch
+//https://www.sitepoint.com/axios-beginner-guide/
 import axios from 'axios';
 import {
     LOGIN_USER,

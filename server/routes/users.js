@@ -73,6 +73,12 @@ router.post("/login", (req, res) => {
     });
 });
 
+// Step 12: API endpoint fr log out of use
+// Removal of token created by log in from cookies
+// will fail log in authentication and hence log user out
+
+// cb function with (err, doc), learn more:
+// https://stackoverflow.com/questions/31780872/what-is-cb-in-node
 router.get("/logout", auth, (req, res) => {
     User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" }, (err, doc) => {
         if (err) return res.json({ success: false, err });

@@ -2,6 +2,7 @@
  * Auth.js - contains middleware for our log in and sign up routes
  * Uses unique token generated at each log in to ensure user is 
  * signed up and sign in before performing functions 
+ * Step 11:
  */
 
 
