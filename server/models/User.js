@@ -1,9 +1,22 @@
+/**
+ * User.js - contains model for our user route
+ * I
+ */
+
+ // Model interacts with database
 const mongoose = require('mongoose');
+// encryption of password in async function.
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+//creates authetication token
 const jwt = require('jsonwebtoken');
 const moment = require('moment');
 
+// Step 3
+// every user stored in database will have
+// a name, email, password, email etc
+// role, cart, history etc will interact 
+// with product scehmas, tokens for authetication with jwt
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -34,7 +47,6 @@ const userSchema = mongoose.Schema({
         type: Array,
         default: []
     },
-    image: String,
     token: {
         type: String,
     },
@@ -43,6 +55,9 @@ const userSchema = mongoose.Schema({
     }
 })
 
+// model interacts with controllers
+// Step 6: Password Encryption
+// before saving user info in db: 
 userSchema.pre('save', function (next) {
     var user = this;
 
@@ -61,6 +76,11 @@ userSchema.pre('save', function (next) {
         next()
     }
 });
+
+// Step 8: Log in continuation from controller
+// for compare password and token generating and find 
+// here lies the actual method declarations ran on json
+// user schemas comparing single json attribute to another
 
 userSchema.methods.comparePassword = function (plainPassword, cb) {
     bcrypt.compare(plainPassword, this.password, function (err, isMatch) {

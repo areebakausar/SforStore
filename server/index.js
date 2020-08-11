@@ -1,36 +1,45 @@
+/**
+ * Entry Point into our MERN Program server
+ * 
+ */
+
+ // Step 1:
+// npm installed express, this imports express module to 
+// const express and creates express application
 const express = require("express");
 const app = express();
+
+// import mongoose package which allow easier connection to mongodb
+const mongoose = require("mongoose");
+
 const path = require("path");
 const cors = require('cors')
 
+// import these npm packages to establish server client communication
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
 
-// const mongoose = require("mongoose");
-// mongoose
-//   .connect(config.mongoURI, { useNewUrlParser: true })
-//   .then(() => console.log("DB connected"))
-//   .catch(err => console.error(err));
-
-const mongoose = require("mongoose");
-const connect = mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB Connected...'))
+// Step 2
+// pass the URI from config file to imported mongoose package and connect database
+mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .then(() => console.log('Database Successfully Connected'))
   .catch(err => console.log(err));
 
-app.use(cors())
+app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//Step 4
+// Allows us to use query strings and make 
+// http requests in url body
 app.use(bodyParser.json());
+// this will use a cookie token and send it with request url
+// to tell server that whether request is coming from a logged in user
 app.use(cookieParser());
+
 
 app.use('/api/users', require('./routes/users'));
 app.use('/api/product', require('./routes/product'));
-
-
-//use this to show the image you have in node js server to client (react js)
-//https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
 
 // Serve static assets if in production

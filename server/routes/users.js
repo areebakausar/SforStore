@@ -1,3 +1,9 @@
+/**
+ * User.js - contains controller for our user model
+ * 
+ */
+
+
 const express = require('express');
 const router = express.Router();
 const { User } = require("../models/User");
@@ -7,9 +13,7 @@ const { Payment } = require('../models/Payment');
 
 const async = require('async');
 
-//=================================
-//             User
-//=================================
+//Step 9: Middleware
 
 router.get("/auth", auth, (req, res) => {
     res.status(200).json({
@@ -26,10 +30,12 @@ router.get("/auth", auth, (req, res) => {
     });
 });
 
+// Step 5
+// an api end point to send request to
 router.post("/register", (req, res) => {
 
     const user = new User(req.body);
-
+    // save the sent info in request body to db
     user.save((err, doc) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({
@@ -38,6 +44,9 @@ router.post("/register", (req, res) => {
     });
 });
 
+// Step 7 
+// An api end point for log in
+// find email, compare password, generate token
 router.post("/login", (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user)
