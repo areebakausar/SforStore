@@ -9,7 +9,7 @@ In order to run this code on your local machine:
 2- run "npm install" in the root directory
 2a- Delete package-lock.json and run "npm audit fix" if yu can't execute node.exe
 3- cd to client directory and run "npm install" again
-4- "cd ../" back to root and "npm run dev" 
+4- "cd ../" back to root and "npm run combine" 
 5-
 
 A live demo of site is also available at "lorem.heroku.com"
