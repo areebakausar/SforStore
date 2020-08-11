@@ -31,10 +31,6 @@ const userSchema = mongoose.Schema({
         type: String,
         minglength: 5
     },
-    lastname: {
-        type: String,
-        maxlength: 50
-    },
     role: {
         type: Number,
         default: 0
@@ -88,7 +84,8 @@ userSchema.methods.comparePassword = function (plainPassword, cb) {
         cb(null, isMatch)
     })
 }
-
+// Step 10: Continuation of middleware
+// decoding token will give back user id
 userSchema.methods.generateToken = function (cb) {
     var user = this;
     var token = jwt.sign(user._id.toHexString(), 'secret')

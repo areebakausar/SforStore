@@ -21,7 +21,8 @@ function RightMenu(props) {
 
   if (user.userData && !user.userData.isAuth) {
     return (
-      <Menu mode={props.mode}>
+      
+      <Menu mode={props.mode } >
         <Menu.Item key="mail">
           <a href="/login">Signin</a>
         </Menu.Item>
@@ -34,7 +35,7 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
 
-        <Menu.Item key="history">
+        <Menu.Item key="history" >
           <a href="/history">History</a>
         </Menu.Item>
 

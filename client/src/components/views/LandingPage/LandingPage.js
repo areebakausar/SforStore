@@ -142,10 +142,14 @@ function LandingPage() {
 
 
     return (
+        
         <div style={{ width: '75%', margin: '3rem auto'}}>
-            <div style={{ textAlign: 'center',color: 'rgb(200, 165, 233)' }}>
-                <h2>  A Shopping Experience Tailored for YOU! </h2>
-            </div>
+            <h1 className = "header-text" style={{ width: '95%', margin: '3rem auto'}}> Shopping Experience Tailored for You! </h1>
+            <img className="header-photo" 
+      src="https://www.gretchenscottdesigns.com/media/wysiwyg/Dresses_cotton_banner.jpg"
+      alt="new"
+      />
+            
 
 
             {/* Filter  */}
