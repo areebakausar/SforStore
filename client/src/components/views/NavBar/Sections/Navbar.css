@@ -29,8 +29,10 @@
 
 .menu__logo a {
   display: inline-block;
-  font-size: 30px;
+  font-size: 25px;
+  margin-top: 2px;
   padding: 12px 10px;
+  font-weight: bolder;
 }
 
 .menu__container .ant-menu-item {
