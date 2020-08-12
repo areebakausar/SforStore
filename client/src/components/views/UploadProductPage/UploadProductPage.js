@@ -6,14 +6,11 @@ import Axios from 'axios';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Continents = [
-    { key: 1, value: "Africa" },
-    { key: 2, value: "Europe" },
-    { key: 3, value: "Asia" },
-    { key: 4, value: "North America" },
-    { key: 5, value: "South America" },
-    { key: 6, value: "Australia" },
-    { key: 7, value: "Antarctica" }
+const Categories = [
+    { key: 1, value: "Clothes" },
+    { key: 2, value: "Jewellery" },
+    { key: 3, value: "Shoes" },
+    { key: 4, value: "Purses" },
 ]
 
 function UploadProductPage(props) {
@@ -21,7 +18,7 @@ function UploadProductPage(props) {
     const [TitleValue, setTitleValue] = useState("")
     const [DescriptionValue, setDescriptionValue] = useState("")
     const [PriceValue, setPriceValue] = useState(0)
-    const [ContinentValue, setContinentValue] = useState(1)
+    const [CategoriesValue, setCategoriesValue] = useState(1)
 
     const [Images, setImages] = useState([])
 
@@ -38,8 +35,8 @@ function UploadProductPage(props) {
         setPriceValue(event.currentTarget.value)
     }
 
-    const onContinentsSelectChange = (event) => {
-        setContinentValue(event.currentTarget.value)
+    const onCategoriesSelectChange = (event) => {
+        setCategoriesValue(event.currentTarget.value)
     }
 
     const updateImages = (newImages) => {
@@ -50,7 +47,7 @@ function UploadProductPage(props) {
 
 
         if (!TitleValue || !DescriptionValue || !PriceValue ||
-            !ContinentValue || !Images) {
+            !CategoriesValue || !Images) {
             return alert('fill all the fields first!')
         }
 
@@ -60,7 +57,7 @@ function UploadProductPage(props) {
             description: DescriptionValue,
             price: PriceValue,
             images: Images,
-            continents: ContinentValue,
+            categories: CategoriesValue,
         }
 
         Axios.post('/api/product/uploadProduct', variables)
@@ -110,8 +107,8 @@ function UploadProductPage(props) {
                     type="number"
                 />
                 <br /><br />
-                <select onChange={onContinentsSelectChange} value={ContinentValue}>
-                    {Continents.map(item => (
+                <select onChange={onCategoriesSelectChange} value={CategoriesValue}>
+                    {Categories.map(item => (
                         <option key={item.key} value={item.key}>{item.value} </option>
                     ))}
                 </select>

@@ -4,7 +4,7 @@ import { Icon, Col, Card, Row } from 'antd';
 import ImageSlider from '../../utils/ImageSlider';
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
-import { continents, price } from './Sections/Datas';
+import { categories, price } from './Sections/Datas';
 
 
 const { Meta } = Card;
@@ -18,7 +18,7 @@ function LandingPage() {
     const [SearchTerms, setSearchTerms] = useState("")
 
     const [Filters, setFilters] = useState({
-        continents: [],
+        categories: [],
         price: []
     })
 
@@ -144,7 +144,7 @@ function LandingPage() {
     return (
         
         <div style={{ width: '75%', margin: '3rem auto'}}>
-            <h1 className = "header-text" style={{ width: '95%', margin: '3rem auto'}}> Shopping Experience Tailored for You! </h1>
+            <h1 className = "header-text" style={{ font: '140px',  margin: '2rem'}}> Shopping Experience Tailored for You! </h1>
             <img className="header-photo" 
       src="https://www.gretchenscottdesigns.com/media/wysiwyg/Dresses_cotton_banner.jpg"
       alt="new"
@@ -157,8 +157,8 @@ function LandingPage() {
             <Row gutter={[16, 16]}>
                 <Col lg={12} xs={24} >
                     <CheckBox
-                        list={continents}
-                        handleFilters={filters => handleFilters(filters, "continents")}
+                        list={categories}
+                        handleFilters={filters => handleFilters(filters, "categories")}
                     />
                 </Col>
                 <Col lg={12} xs={24}>

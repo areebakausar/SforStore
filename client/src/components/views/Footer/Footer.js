@@ -8,7 +8,7 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'            
         }}>
-           <p> Shop with us Now! <Icon type="smile" /></p>
+           <p> You have reached the end of the website </p>
         </div>
     )
 }

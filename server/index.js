@@ -23,7 +23,7 @@ const config = require("./config/key");
 
 // Step 2
 // pass the URI from config file to imported mongoose package and connect database
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(config.mongoURI, { useNewUrlParser: true})
   .then(() => console.log('Database Successfully Connected'))
   .catch(err => console.log(err));
 

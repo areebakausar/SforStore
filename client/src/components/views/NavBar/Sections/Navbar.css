@@ -16,11 +16,16 @@
 }
 
 .header-text{
-  background-color: rgb(200, 165, 233);
-  border-radius: 3rem;
+  
+  border-radius: 1rem;
   text-align: center;
-  color: rgb(239, 239, 245);
+  color: rgb(255, 255, 255);
   font: italic "Helvatica";
+  font-weight: bolder;
+  font-size: xx-large;
+  background-image: linear-gradient(rgb(200, 165, 233), rgb(91, 185, 216));
+  box-shadow: bisque;
+  box-shadow: inset;
 }
 .menu__logo {
   width: 150px;
@@ -33,6 +38,7 @@
   margin-top: 2px;
   padding: 12px 10px;
   font-weight: bolder;
+  font-size: x-large;
 }
 
 .menu__container .ant-menu-item {

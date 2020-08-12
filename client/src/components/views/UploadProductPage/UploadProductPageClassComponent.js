@@ -6,14 +6,11 @@ import FileUpload from '../../utils/FileUpload';
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const Continents = [
-    { key: 1, value: "Africa" },
-    { key: 2, value: "Europe" },
-    { key: 3, value: "Asia" },
-    { key: 4, value: "North America" },
-    { key: 5, value: "South America" },
-    { key: 6, value: "Australia" },
-    { key: 7, value: "Antarctica" }
+const Categories = [
+    { key: 1, value: "Clothes" },
+    { key: 2, value: "Jewellery" },
+    { key: 3, value: "Shoes" },
+    { key: 4, value: "Purses" },
 ]
 
 export class UploadProductPage extends Component {
@@ -21,7 +18,7 @@ export class UploadProductPage extends Component {
     state = {
         title: '',
         description: '',
-        continents: 1,
+        categories: 1,
         images: [],
         price: 0
     }
@@ -39,8 +36,8 @@ export class UploadProductPage extends Component {
         this.setState({ description: event.currentTarget.value })
     }
 
-    handleChangeContinents = (event) => {
-        this.setState({ continents: event.currentTarget.value })
+    handleChangeCategories = (event) => {
+        this.setState({ categories: event.currentTarget.value })
     }
 
     onSubmit = (event) => {
@@ -51,7 +48,7 @@ export class UploadProductPage extends Component {
         }
 
         if (!this.state.title || !this.state.description ||
-            !this.state.continents || !this.state.images
+            !this.state.categories || !this.state.images
             || !this.state.price) {
             return alert('Please first fill all the fields')
         }
@@ -61,7 +58,7 @@ export class UploadProductPage extends Component {
             title: this.state.title,
             description: this.state.description,
             images: this.state.images,
-            continents: this.state.continents,
+            categories: this.state.categories,
             price: this.state.price
         }
 
@@ -114,8 +111,8 @@ export class UploadProductPage extends Component {
                     value={this.state.price}
                 />
                 <br /><br />
-                <select onChange={this.handleChangeContinents}>
-                    {Continents.map(item => (
+                <select onChange={this.handleChangeCategories}>
+                    {Categories.map(item => (
                         <option key={item.key} value={item.key}>{item.value}</option>
                     ))}
                 </select>
