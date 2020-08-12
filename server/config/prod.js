@@ -5,5 +5,5 @@
  */
 
 module.exports = {
-    mongoURI:'mongodb://localhost:27017/SforStore-Final'
+    mongoURI: "mongodb+srv://sforstoreadmin:sforstoreadminpass@sforstore.zswux.gcp.mongodb.net/sforstore?retryWrites=true&w=majority"
 }
